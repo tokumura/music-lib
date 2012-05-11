@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  musician: MyString
+  release: 2012-05-11
+  info: MyText
+
+two:
+  title: MyString
+  musician: MyString
+  release: 2012-05-11
+  info: MyText
