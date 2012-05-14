@@ -2,27 +2,31 @@
 <%= link_to 'To Musicians', musicians_path %>
 
 <table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Musician</th>
-    <th>Release</th>
-    <th>Info</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Musician</th>
+      <th>Release</th>
+      <th>Info</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
 <% @musics.each do |music| %>
-  <tr>
-    <td><%= music.title %></td>
-    <td><%= music.musician.name %></td>
-    <td><%= music.release %></td>
-    <td><%= music.info %></td>
-    <td><%= link_to 'Show', music %></td>
-    <td><%= link_to 'Edit', edit_music_path(music) %></td>
-    <td><%= link_to 'Destroy', music, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <tr>
+      <td><%= music.title %></td>
+      <td><%= music.musician.name %></td>
+      <td><%= music.release %></td>
+      <td><%= music.info %></td>
+      <td><%= link_to 'Show', music %></td>
+      <td><%= link_to 'Edit', edit_music_path(music) %></td>
+      <td><%= link_to 'Destroy', music, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
 <% end %>
+  </tbody>
+
 </table>
 
 <br />
