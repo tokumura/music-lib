@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @musician.name %>
+</p>
+
+<p>
+  <b>Belong to:</b>
+  <%= @musician.belong_to %>
+</p>
+
+<p>
+  <b>Debut:</b>
+  <%= @musician.debut %>
+</p>
+
+<p>
+  <b>Discography</b>
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Release</th>
+        <th>Info</th>
+      </tr>
+      <% @musician.music.each do |music| %>
+      <tr>
+        <td><%= music.title %></td>
+        <td><%= music.release %></td>
+        <td><%= music.info %></td>
+      </tr>
+      <% end %>
+    </table>
+  
+</p>
+
+
+<%= link_to 'Edit', edit_musician_path(@musician) %> |
+<%= link_to 'Back', musicians_path %>

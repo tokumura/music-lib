@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  belong_to: MyString
+  debut: 2012-05-14
+
+two:
+  name: MyString
+  belong_to: MyString
+  debut: 2012-05-14

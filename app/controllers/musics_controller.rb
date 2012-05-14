@@ -24,6 +24,7 @@ class MusicsController < ApplicationController
   # GET /musics/new
   # GET /musics/new.xml
   def new
+    @musicians = Musician.all
     @music = Music.new
 
     respond_to do |format|
@@ -40,6 +41,7 @@ class MusicsController < ApplicationController
   # POST /musics
   # POST /musics.xml
   def create
+    puts params[:music]
     @music = Music.new(params[:music])
 
     respond_to do |format|

@@ -1,0 +1,30 @@
+<%= form_for(@musician) do |f| %>
+  <% if @musician.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@musician.errors.count, "error") %> prohibited this musician from being saved:</h2>
+
+      <ul>
+      <% @musician.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :belong_to %><br />
+    <%= f.text_field :belong_to %>
+  </div>
+  <div class="field">
+    <%= f.label :debut %><br />
+    <%= f.date_select :debut %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

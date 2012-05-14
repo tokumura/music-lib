@@ -16,9 +16,18 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.select :musician_id, Musician.all.map{|m| [m.name, m.id]} %>
+  </div>
+<%
+=begin
+%>
+  <div class="field">
     <%= f.label :musician %><br />
     <%= f.text_field :musician %>
   </div>
+<%
+=end
+%>
   <div class="field">
     <%= f.label :release %><br />
     <%= f.date_select :release %>
@@ -27,6 +36,8 @@
     <%= f.label :info %><br />
     <%= f.text_area :info %>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

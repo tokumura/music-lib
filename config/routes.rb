@@ -1,4 +1,6 @@
 Testapp::Application.routes.draw do
+  resources :musicians
+
   resources :musics
 
   # The priority is based upon order of creation:
