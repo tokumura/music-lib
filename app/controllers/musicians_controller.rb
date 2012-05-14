@@ -14,6 +14,9 @@ class MusiciansController < ApplicationController
   # GET /musicians/1.xml
   def show
     @musician = Musician.find(params[:id])
+    puts "musician.music"
+    puts @musician.music
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +28,7 @@ class MusiciansController < ApplicationController
   # GET /musicians/new.xml
   def new
     @musician = Musician.new
+    @music = Music.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,9 +45,18 @@ class MusiciansController < ApplicationController
   # POST /musicians.xml
   def create
     @musician = Musician.new(params[:musician])
+    @music = Music.new(params[:music])
+    save_success = @musician.save
+    if (save_success)
+      @music.musician_id = @musician.id
+      save_success = @music.save
+    end
 
     respond_to do |format|
-      if @musician.save
+      #if @musician.save
+      if save_success
+        puts "@musician.id"
+        puts @musician.id
         format.html { redirect_to(@musician, :notice => 'Musician was successfully created.') }
         format.xml  { render :xml => @musician, :status => :created, :location => @musician }
       else
@@ -73,6 +86,10 @@ class MusiciansController < ApplicationController
   # DELETE /musicians/1.xml
   def destroy
     @musician = Musician.find(params[:id])
+    @musics = Music.find_all_by_musician_id(@musician.id)
+    @musics.each do |music|
+      music.destroy
+    end
     @musician.destroy
 
     respond_to do |format|

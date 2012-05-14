@@ -24,6 +24,16 @@
     <%= f.date_select :debut %>
   </div>
 
+  <h3>Add first discography</h3>
+  <%= fields_for(@music) do |m| %>
+    <%= m.label :title %>
+    <%= m.text_field :title %>
+    <%= m.label :release %>
+    <%= m.date_select :release %>
+  <% end %>
+
+  <br/>
+  <br/>
   <div class="actions">
     <%= f.submit %>
   </div>
